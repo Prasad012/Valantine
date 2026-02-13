@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Sruthi 💖</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Comic Sans MS', cursive;
+    background: linear-gradient(to bottom right, #ff9ecf, #ffcce6);
+    text-align: center;
+    overflow-x: hidden;
+    color: #fff;
+}
+
+.container {
+    padding: 30px;
+    margin-top: 60px;
+}
+
+button {
+    padding: 14px 22px;
+    font-size: 16px;
+    border: none;
+    border-radius: 30px;
+    margin: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#yesBtn {
+    background-color: #ff4d88;
+    color: white;
+}
+
+#noBtn {
+    background-color: white;
+    color: #ff4d88;
+    position: absolute;
+}
+
+#popup, #anniversarySection {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 105, 180, 0.97);
+    overflow-y: auto;
+    padding: 25px;
+}
+
+.content {
+    max-width: 500px;
+    margin: auto;
+}
+
+.hearts {
+    position: fixed;
+    bottom: -50px;
+    font-size: 20px;
+    animation: float 5s linear infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-100vh); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Hi Sruthi 💖</h1>
+    <p>From Prasad, with all my heart...</p>
+    <p>Will you be my Valentine forever? 💘</p>
+    <button id="yesBtn" onclick="showLove()">💖 YES</button>
+    <button id="noBtn">🙈 NO</button>
+</div>
+
+<!-- FIRST POPUP -->
+<div id="popup">
+    <div class="content">
+        <h2>Yayyyy Sruthi! 🎉</h2>
+        <p>You just made Prasad the happiest man alive ❤️</p>
+        <p>I love you more than words can say 💕</p>
+        <button onclick="showAnniversary()">Our Anniversary 💌</button>
+    </div>
+</div>
+
+<!-- ANNIVERSARY SECTION -->
+<div id="anniversarySection">
+    <div class="content">
+        <h2>Happy One Year My Love ❤️</h2>
+
+        <p>It’s been one year since I proposed to you on this same date — February 14.</p>
+
+        <p>After all the ups and downs, all the laughter and the tears, we are still here… together. And this past year has truly been the best year of my entire life.</p>
+
+        <p>With you, I learned to notice and enjoy the smallest moments. Every conversation, every walk, every meal we shared, every place we went — those memories mean everything to me.</p>
+
+        <p>You made Chennai special for me. You made ordinary days feel magical. And most importantly… you made me feel special too.</p>
+
+        <p>I still can’t believe we’ve crossed one beautiful year together.</p>
+
+        <p>We’ve gone through tough situations, emotional days — but we never gave up on each other.</p>
+
+        <p>I promise you from my heart — I will never let you down. I will work hard to give you the best life. I will make you happy. I will buy you all the things you dream of.</p>
+
+        <p>One day, we will live happily with Aathesh and Kuzhalini.</p>
+
+        <p><strong>Thank you for choosing me. Thank you for staying. Thank you for loving me.</strong></p>
+
+        <p>Forever yours,<br>Prasad 💖</p>
+    </div>
+</div>
+
+<audio id="song1" src="love.mp3"></audio>
+<audio id="song2" src="anniversary.mp3"></audio>
+
+<script>
+let noBtn = document.getElementById("noBtn");
+let count = 0;
+
+noBtn.addEventListener("mouseover", function() {
+    count++;
+    let x = Math.random() * (window.innerWidth - 120);
+    let y = Math.random() * (window.innerHeight - 60);
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+
+    if(count > 3){
+        alert("Nice try Sruthi 😜 You’re already mine!");
+    }
+});
+
+function showLove(){
+    document.getElementById("popup").style.display = "block";
+    document.getElementById("song1").play();
+    createHearts();
+}
+
+function showAnniversary(){
+    document.getElementById("popup").style.display = "none";
+    document.getElementById("anniversarySection").style.display = "block";
+
+    document.getElementById("song1").pause();
+    document.getElementById("song1").currentTime = 0;
+
+    document.getElementById("song2").play();
+}
+
+function createHearts(){
+    for(let i=0; i<40; i++){
+        let heart = document.createElement("div");
+        heart.className = "hearts";
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random()*100 + "vw";
+        heart.style.animationDuration = (Math.random()*3 + 2) + "s";
+        document.body.appendChild(heart);
+    }
+}
+</script>
+
+</body>
+</html>
